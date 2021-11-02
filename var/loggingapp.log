@@ -1,0 +1,6 @@
+INFO | 2021-11-02 16:26:30,363 | loggingapp | root | Logging a test message from /
+INFO | 2021-11-02 16:26:44,483 | loggingapp | root | Logging a test message from /
+INFO | 2021-11-02 16:26:48,340 | loggingapp | root | Logging a test message from /
+INFO | 2021-11-02 16:27:10,559 | loggingapp | root | Logging a test message from /
+INFO | 2021-11-02 16:29:46,085 | loggingapp | root | Logging a test message from /
+INFO | 2021-11-02 16:29:46,284 | loggingapp | root | Logging a test message from /
