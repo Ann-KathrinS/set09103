@@ -13,7 +13,7 @@ def display():
 def account():
     if request.method == 'POST':
         f = request.files['datafile']
-        f.save('static/uploads/file.png')
+        f.save('static/img/paw.svg')
         return "File Uploaded"
     else:
         page ='''

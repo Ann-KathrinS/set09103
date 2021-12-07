@@ -1,0 +1,406 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 1.2rem !important;
+    font-family: "Quicksand" !important;
+    line-height: 1.6rem !important;
+}
+
+
+
+h1,h2,h3{
+    font-family: Aubrey;
+}
+
+h4,h5,h6,p{
+    font-family: Quicksand;
+}
+
+a{
+    color: #540000 !important;
+    font-weight: bold;
+}
+
+a:hover{
+    color: #DDCACA;
+}
+
+.colouredHeading{
+    color: #540000;
+}
+
+#notFound{
+    font-size: 6rem;
+}
+
+.navbar{
+    background-color: #540000;
+}
+
+.navbar-brand{
+    padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    margin-right: 0;
+}
+
+.nav-link{
+    color: #fff !important;
+    font-weight: normal;
+}
+
+.nav-link.active{
+    font-weight: bold;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+    margin-right: 1.5rem;
+}
+
+.notFound{
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-top: 5rem;
+    font-size: 1.2em;
+    margin-top: 5rem;
+}
+
+.notFound img{
+    margin-left: 6rem;
+}
+
+.petAdded{
+    background-color: #DDCACA;
+    width: 70vw;
+    margin: 10rem auto 0 auto;
+    padding: 3rem;
+    border-radius: 3rem;
+}
+
+.petAdded a:hover{
+    color: #fff;
+}
+
+
+footer{
+    background-color: #540000;
+    color: #fff;
+    padding-top: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 3rem;
+}
+
+footer p{
+    margin-top: 2rem;
+}
+
+.background{
+    background-image: url('/static/img/background_image1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 8rem;
+}
+
+.text_on_bg{
+    color: #fff;
+}
+
+.text_bold{
+    font-weight: bold;
+}
+
+.box{
+    border: 3px solid #fff;
+    width: 13rem;
+    height: 13rem;
+    padding: 1rem;
+}
+
+.box:hover{
+    transform: scale(1.01);
+}
+
+.box_icon{
+    width: auto;
+    height: 8rem;
+    margin-bottom: 1rem;
+}
+
+.box h3{
+    color: #fff;
+}
+
+a.box{
+    border: none;
+    padding: 0;
+    text-decoration: none !important;
+}
+
+.content{
+    margin-top: 8rem;
+}
+
+.report{
+    margin-top: 4rem;
+}
+
+input.petIcon{
+    display: none;
+}
+
+input.petIconFilter{
+    display: none;
+}
+
+.petIcon{
+    fill: #000000;
+}
+
+.petIconFilter{
+    fill: #ffffff;
+}
+
+.petIcon{
+    font-size: 3rem;
+    margin-right: 1.5rem;
+}
+
+.petIconFilter{
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+form input + label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.petIcon:checked + label{
+    color: #540000;
+}
+
+.petIcon:checked + label svg{
+    fill: #540000;
+}
+
+.petIconFilter:checked + label{
+    color: #666666;
+}
+
+.petIconFilter:checked + label svg{
+    fill: #666666;
+}
+
+
+input[type="text"], input[type="date"], input[type"email"]{
+    border-radius: 0.5rem;
+    border: 0.05rem solid black;
+    background-color: #EBEBEB;
+    height: 1.5rem;
+    font-size: smaller;
+}
+
+.formInputs{
+    text-align: left;
+}
+
+.rightCol{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.category{
+    text-align: left;
+}
+
+.colour{
+    margin-right: 1.2rem;
+}
+
+input[type="checkbox"]{
+    border-radius: 0.5rem;
+    border: 0.05rem solid black;
+    background-color: #EBEBEB;
+}
+
+.sex{
+    margin-right: 2.5rem;
+}
+
+textarea{
+    border-radius: 0.5rem;
+    border: 0.05rem solid black;
+    background-color: #EBEBEB;
+}
+
+.photoUpload{
+    border-radius: 0.5rem !important;
+    border: 0.05rem solid black !important;
+    background-color: #EBEBEB !important;
+    color: #000000 !important;
+}
+
+.btn-primary:hover{
+    color: #ffffff;
+    background-color: #DDCACA;
+    border: 0.05rem solid black;
+}
+
+.submit{
+    color: #ffffff !important;
+    background-color: #540000 !important;
+    border-radius: 0.5rem !important;
+    border: 0.05rem solid black !important;
+    font-size: 1.3rem !important;
+    font-family: "Quicksand" !important;
+}
+
+
+.contentTop{
+    padding-top: 8rem;
+}
+
+.pet_box{
+    width: 14rem;
+    height: 14rem;
+    border: 2px solid black;
+    position: relative;
+    padding: 0;
+    text-decoration: none;
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+.petPhoto{
+    width: 13.75rem;
+}
+
+.petInfo{
+    color: #ffffff;
+    height: 4.55rem;
+    width: 13.75rem;
+    background-color: #B4B4B4;
+    padding: 0.6rem 0.7rem 0.7rem 0.7rem;
+    position: relative;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+a.pet_box:hover{
+    text-decoration: none;
+}
+
+.pet_box:hover .petInfo{
+    height: 13.75rem;
+}
+
+.pet_box:hover .petPhoto{
+    display: none;
+    transition-delay: 2s;
+
+}
+
+.filterHeading{
+    text-align: left;
+    font-family: Quicksand;
+    margin-left: 8.3rem;
+    cursor: pointer;
+}
+
+hr{
+    opacity: 1;
+    border: 2px solid #540000 !important;
+    margin-left: 8.3rem;
+    margin-right: 8.3rem;
+}
+
+.filters{
+    margin-left: 8.3rem;
+    margin-right: 8.3rem;
+    height: 19rem;
+    color: #ffffff;
+    background-color: #540000;
+    text-align: left;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+}
+
+select{
+    width: 10rem;
+    border-radius: 0.5rem;
+    border: 0.05rem solid black;
+    background-color: #EBEBEB;
+}
+
+
+.petPhotoBig{
+    /*width: 30rem;*/
+    position: relative;
+    width: 19.8rem;
+    height: 19.8rem;
+    object-fit: cover;
+}
+
+.info{
+    margin-left: 8.3rem;
+    margin-right: 8.3rem;
+}
+
+.photo{
+    width: 20rem;
+    height: 20rem;
+    border: 2px solid black;
+}
+
+.infoMargin{
+    margin-top: 2rem;
+}
+
+.commentsSection{
+    margin-top: 4rem;
+    margin-left: 8.3rem;
+    margin-right: 8.3rem;
+}
+
+.comments{
+    background-color: #DDCACA;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.marginComments{
+    margin-bottom: 2rem;
+}
+
+.addComment{
+    margin-left: 8.3rem;
+    margin-right: 8.3rem;
+}
+
+
+.applyFilters{
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.filterHeading:not(.collapsed) .openFilters{
+    display: none;
+}
+
+.filterHeading.collapsed .closeFilters{
+    display: none;
+}
+
