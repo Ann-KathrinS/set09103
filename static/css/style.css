@@ -202,12 +202,12 @@ form input + label {
 }
 
 
-input[type="text"], input[type="date"], input[type"email"]{
-    border-radius: 0.5rem;
-    border: 0.05rem solid black;
-    background-color: #EBEBEB;
-    height: 1.5rem;
-    font-size: smaller;
+input[type="text"], input[type="date"], input[type="email"]{
+    border-radius: 0.5rem !important;
+    border: 0.05rem solid black !important;
+    background-color: #EBEBEB !important;
+    height: 1.5rem !important;
+    font-size: smaller !important;
 }
 
 .formInputs{
@@ -280,6 +280,12 @@ textarea{
     text-align: left;
     font-size: 0.9em;
     font-weight: normal;
+    margin-right: 1.89rem;
+    margin-bottom: 3.5rem;
+}
+
+.pets:nth-child(3){
+    margin-right: 0;
 }
 
 .petPhoto{
@@ -288,7 +294,7 @@ textarea{
 
 .petInfo{
     color: #ffffff;
-    height: 4.55rem;
+    height: 4.57rem;
     width: 13.75rem;
     background-color: #B4B4B4;
     padding: 0.6rem 0.7rem 0.7rem 0.7rem;
