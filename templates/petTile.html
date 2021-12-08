@@ -1,0 +1,25 @@
+{% extends "pagePets.html" %}
+
+{% block pet %}
+
+<div class="d-flex flex-wrap justify-content-evenly m-5 p-0">
+    <a href="/missing/{{ petId }}/{{ petName }}" class="pet_box">
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" class="petPhoto">
+        <div class="petInfo">
+            <p>{{ type1 }}<span class="bold"> {{ date }}</span><br>
+                {{ type2 }} in<span class="bold"> {{ location }}</span>
+            </p>
+            <p class="addInfo">
+                Name: {{ petName }}<br>
+                Sex: {{ sex }}<br>
+                Age: {{ age }}<br>
+                Colour:
+                {% for colour in colours %}
+                    {{ colour }}
+                {% endfor %}
+            </p>
+        </div>
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "page.html" %}
+
+{% block content %}
+
+<div>
+    <div class="d-flex text-center flex-column m-5 contentTop">
+        <h1>{{ type }} pets</h1>
+
+        <div class="container">
+            <h3 class="filterHeading" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="collapse">Filter results  <i class="fas fa-chevron-up closeFilters"></i><i class="fas fa-chevron-down openFilters"></i></h3>
+            <hr>
+            <div class="filters collapse" id="filters">
+                <form action="#" method="post">
+                    <div class="container w-100">
+                        <p class="formInputs">
+                            <span class="bold">Pet type: </span>
+                            <input type="radio" name="petType" value="dog" class="petIconFilter" id="missingDogTrigger">
+                            <label for="missingDogTrigger" id="missingDogLabel" class="petIconFilter"><i class="fas fa-dog"></i></label>
+                            <input type="radio" name="petType" value="cat" class="petIconFilter" id="missingCatTrigger">
+                            <label for="missingCatTrigger" id="missingCatLabel" class="petIconFilter"><i class="fas fa-cat"></i></label>
+                            <input type="radio" name="petType" value="bird" class="petIconFilter" id="missingBirdTrigger">
+                            <label for="missingBirdTrigger" id="missingBirdLabel" class="petIconFilter"><i class="fas fa-dove"></i></label>
+                            <input type="radio" name="petType" value="rabbit" class="petIconFilter" id="missingRabbitTrigger">
+                            <label for="missingRabbitTrigger" id="missingRabbitLabel" class="petIconFilter">
+                                <svg width="3.2rem" height="3.2rem" viewBox="0 0 492 382" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                                        <g transform="matrix(1,0,0,1,-124.276,-77.8104)">
+                                            <g>
+                                                <g transform="matrix(1,0,0,1,24.6553,-14.4778)">
+                                                    <path d="M521.92,371.84C528.639,367.359 557.201,361.762 557.201,361.762C600.881,343.84 589.681,287.84 589.681,287.84C566.161,204.961 484.401,211.121 484.401,211.121C480.479,163.519 435.682,107.521 402.081,96.321C368.479,85.122 361.761,100.802 361.761,100.802C330.96,142.802 427.281,230.722 427.281,230.722M511.279,277.199C509.041,274.961 507.92,272.16 507.92,269.359C507.92,266.558 509.041,263.758 511.279,261.519C515.201,257.597 523.041,257.039 526.959,261.519C529.197,263.758 530.318,266.558 530.318,269.359C530.318,272.16 529.197,274.961 526.959,277.199C524.721,279.437 521.92,280.558 519.119,280.558C516.318,280.558 513.518,279.441 511.279,277.199L511.279,277.199Z" style="fill-rule:nonzero;"/>
+                                                </g>
+                                                <g transform="matrix(1,0,0,1,16.8201,-6.6426)">
+                                                    <path d="M427.281,230.722C375.203,209.441 300.161,215.601 300.161,215.601C180.881,225.12 145.041,311.921 145.041,311.921C118.721,310.241 118.721,334.319 118.721,334.319C118.721,334.319 108.643,337.119 107.522,347.198C106.401,357.276 119.842,367.917 119.842,367.917C117.041,387.519 147.842,389.198 147.842,389.198C147.842,389.198 154.561,398.717 160.721,424.479C167.44,450.799 208.323,465.358 208.323,465.358C208.323,465.358 548.803,468.158 554.403,464.236C560.005,460.315 557.204,454.158 557.204,454.158C556.083,435.678 505.684,427.279 505.684,427.279C510.164,423.358 506.805,400.4 506.805,400.4C507.363,394.236 515.766,376.877 521.926,371.838L521.92,371.84" style="fill-rule:nonzero;"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                            </label>
+                            <input type="radio" name="petType" value="other" class="other"> Other
+                        </p>
+                        <div class="row w-100 text-center">
+                            <div class="col w-50">
+                                <p class="formInputs">
+                                    <span class="bold">Location: </span>
+                                    <select name="location" id="location">
+                                        <option selected="selected">Filter location</option>
+                                        <option value="EH1">EH1</option>
+                                        <option value="EH2">EH2</option>
+                                        <option value="EH3">EH3</option>
+                                        <option value="EH4">EH4</option>
+                                        <option value="EH5">EH5</option>
+                                        <option value="EH6">EH6</option>
+                                        <option value="EH7">EH7</option>
+                                        <option value="EH8">EH8</option>
+                                        <option value="EH9">EH9</option>
+                                        <option value="EH10">EH10</option>
+                                        <option value="EH11">EH11</option>
+                                        <option value="EH12">EH12</option>
+                                        <option value="EH13">EH13</option>
+                                        <option value="EH14">EH14</option>
+                                        <option value="EH15">EH15</option>
+                                        <option value="EH16">EH16</option>
+                                        <option value="EH16">EH16</option>
+                                        <option value="EH17">EH17</option>
+                                        <option value="EH18">EH18</option>
+                                        <option value="EH19">EH19</option>
+                                        <option value="EH20">EH20</option>
+                                        <option value="EH21">EH21</option>
+                                        <option value="EH22">EH22</option>
+                                        <option value="EH23">EH23</option>
+                                        <option value="EH24">EH24</option>
+                                        <option value="EH25">EH25</option>
+                                        <option value="EH26">EH26</option>
+                                        <option value="EH27">EH27</option>
+                                        <option value="EH28">EH28</option>
+                                        <option value="EH29">EH29</option>
+                                        <option value="EH30">EH30</option>
+                                        <option value="EH31">EH31</option>
+                                        <option value="EH32">EH32</option>
+                                        <option value="EH33">EH33</option>
+                                        <option value="EH34">EH34</option>
+                                        <option value="EH35">EH35</option>
+                                        <option value="EH36">EH36</option>
+                                        <option value="EH37">EH37</option>
+                                        <option value="EH38">EH38</option>
+                                        <option value="EH39">EH39</option>
+                                        <option value="EH40">EH40</option>
+                                        <option value="EH41">EH41</option>
+                                        <option value="EH42">EH42</option>
+                                        <option value="EH43">EH43</option>
+                                        <option value="EH44">EH44</option>
+                                        <option value="EH45">EH45</option>
+                                        <option value="EH46">EH46</option>
+                                        <option value="EH47">EH47</option>
+                                        <option value="EH48">EH48</option>
+                                        <option value="EH49">EH49</option>
+                                        <option value="EH50">EH50</option>
+                                        <option value="EH51">EH51</option>
+                                        <option value="EH52">EH52</option>
+                                        <option value="EH53">EH53</option>
+                                        <option value="EH54">EH54</option>
+                                        <option value="EH55">EH55</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p class="formInputs">
+                                    <span class="bold formLabel">Sex: </span>
+                                    <span class="colour"><input type="radio" name="female"> Female</span>
+                                    <span><input type="radio" name="male"> Male</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <p>
+                                <span class="bold">Colours: </span><br>
+                            <div>
+                                <span class="colour"><input type="checkbox" name="black"> Black</span>
+                                <span class="colour"><input type="checkbox" name="white"> White</span>
+                                <span class="colour"><input type="checkbox" name="brown"> Brown</span>
+                                <span class="colour"><input type="checkbox" name="lightBrown"> Light brown</span>
+                                <span class="colour"><input type="checkbox" name="grey"> Grey</span>
+                                <span class="colour"><input type="checkbox" name="beige"> Beige</span>
+                                <span class="colour"><input type="checkbox" name="red"> Red</span>
+                                <span class="colour"><input type="checkbox" name="other"> Other
+                            </div>
+                            </p>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary submit applyFilters" name="applyFilters" value="Apply filters">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+
+            {% for pet in pets %}
+                {% block pet %}
+
+                {% endblock %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

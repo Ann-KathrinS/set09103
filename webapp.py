@@ -28,7 +28,9 @@ def init_db():
         db.commit()    
 
 
-
+@app.route('/test')
+def test():
+    return render_template('petTile.html'),200
 
 @app.route('/')
 def root():
@@ -45,4 +47,3 @@ def petAdded():
 
 if __name__=="__main__":
     app.run(host='0.0.0.0', debug=True)
-
