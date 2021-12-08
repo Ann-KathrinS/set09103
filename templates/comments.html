@@ -1,0 +1,35 @@
+{% extends "pagePet.html" %}
+
+{% block comments %}
+
+<div class="commentsSection">
+  {% if type == "missing" %}
+      <h4>Did you find {{ petName }} or do you have any hints? Share your comments here.
+      <br>Every hint can help to find {{ petName }} as soon as possible.</h4>
+  {% else %}
+      <h4>Do you know {{ petName }}, is it your own pet? Share your comments here.
+        <br>Every hint can help to find {{ petName }}s owner as soon as possible.</h4>
+  {% endif}
+
+  <div class="comments">
+    <h4 class="marginComments">Hints and comments</h4>
+
+    {% for comment in comments %}
+      {% block comment %}
+    {% endfor %}
+
+  </div>
+</div>
+<div class="addComment">
+  <form action="#" method="post">
+    <p>
+      <span class="bold">Your name:</span><br>
+      <input type="text" name="ownersName" size="30" required><br><br>
+      <span class="bold">Add your comment here:</span><br>
+      <textarea name="petDescription" rows="3" cols="88" required></textarea>
+    </p>
+    <input type="submit" class="btn submit" name="submitComment" value="Add comment">
+  </form>
+</div>
+
+{% endblock %}

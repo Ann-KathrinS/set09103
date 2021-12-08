@@ -1,0 +1,10 @@
+{% extends "comments.html" %}
+
+{% block comment %}
+
+<div class="comment">
+    <p><span class="bold">{{ name }} </span>{{ date }}</p>
+    <p>{{ text }}</p>
+</div>
+
+{% endblock %}
