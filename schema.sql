@@ -10,6 +10,7 @@ CREATE TABLE pet (
         petId INTEGER PRIMARY KEY AUTOINCREMENT,
         reportType text,
         petType text,
+	otherPetType text,
         name text,
         reportDate date,
         postcodeArea text,
@@ -20,7 +21,16 @@ CREATE TABLE pet (
         photo blob,
         ownerName text,
         ownerSurname text,
-        email text
+        email text,
+	black boolean,
+	white boolean,
+	brown boolean,
+	lightBrown boolean,
+	grey boolean,
+	beige boolean,
+	red boolean,
+	other boolean,
+	otherColour text
 );
 
 CREATE TABLE comments (
@@ -36,7 +46,7 @@ CREATE TABLE comments (
 CREATE TABLE colour (
         colourId INTEGER PRIMARY KEY AUTOINCREMENT,
         category text,
-        name text
+        colourName text
 );
 
 CREATE TABLE petColour (
@@ -47,4 +57,5 @@ CREATE TABLE petColour (
                 REFERENCES pet (petId),
         FOREIGN KEY (colourId)
                 REFERENCES colour (colourId)
-);                         
+);
+

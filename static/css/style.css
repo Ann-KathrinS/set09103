@@ -290,6 +290,8 @@ textarea{
 
 .petPhoto{
     width: 13.75rem;
+    height: 13.75rem;
+    object-fit: cover;
 }
 
 .petInfo{
@@ -299,6 +301,7 @@ textarea{
     background-color: #B4B4B4;
     padding: 0.6rem 0.7rem 0.7rem 0.7rem;
     position: relative;
+    margin-top: -4.57rem;
 }
 
 .bold{
@@ -311,6 +314,7 @@ a.pet_box:hover{
 
 .pet_box:hover .petInfo{
     height: 13.75rem;
+    margin-top: 0;
 }
 
 .pet_box:hover .petPhoto{
@@ -341,6 +345,10 @@ hr{
     background-color: #540000;
     text-align: left;
     padding: 0.8rem 1rem 0.8rem 1rem;
+}
+
+.petsBoxes{
+    justify-content: center;
 }
 
 select{

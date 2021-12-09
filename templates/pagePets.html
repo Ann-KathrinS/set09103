@@ -4,7 +4,7 @@
 
 <div>
     <div class="d-flex text-center flex-column m-5 contentTop">
-        <h1>{{ type }} pets</h1>
+        <h1>{{ reportType }} pets</h1>
 
         <div class="container">
             <h3 class="filterHeading" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="collapse">Filter results  <i class="fas fa-chevron-up closeFilters"></i><i class="fas fa-chevron-down openFilters"></i></h3>
@@ -133,13 +133,64 @@
         </div>
 
         <div class="container">
+                <div class="d-flex flex-wrap justify-content-evenly m-5 p-0 petsBoxes">
 
-            {% for pet in pets %}
-                {% block pet %}
+                    {% for pet in pets %}
 
-                {% endblock %}
-            {% endfor %}
-
+                        {% if reportType == "Missing" %}
+                            <a href="/missing/{{ pet['petId'] }}/{{ pet['name'] }}" class="pet_box">
+                        {% else %}
+                            <a href="/found/{{ pet['petId'] }}" class="pet_box">
+                        {% endif %}
+                                <img src="{{ url_for('static', filename='img/' + pet['photo']) }}" class="petPhoto">
+                                <div class="petInfo">
+                                    <p>{% if reportType == "Missing" %}
+                                            Missing since
+                                        {% else %}
+                                            Found on
+                                        {% endif %}
+                                        <span class="bold"> {{ pet['date'] }}</span><br>
+                                        {% if reportType == "Missing" %}
+                                            Missing in
+                                        {% else %}
+                                            Found in
+                                        {% endif %}
+                                        <span class="bold"> {{ pet['postcodeArea'] }} {{ pet['postcodeIncode'] }}</span>
+                                    </p>
+                                    <p class="addInfo">
+                                        Name: {{ pet['name'] }}<br>
+                                        Sex: {{ pet['sex'] }}<br>
+                                        Age: {{ pet['age'] }}<br>
+                                        Colour:
+                                        {% if pet['black'] == 1 %}
+                                        <span>black </span>
+                                        {% endif %}
+                                        {% if pet['white'] == 1 %}
+                                        <span>white </span>
+                                        {% endif %}
+                                        {% if pet['brown'] == 1 %}
+                                        <span>brown </span>
+                                        {% endif %}
+                                        {% if pet['lightBrown'] == 1 %}
+                                        <span>light brown </span>
+                                        {% endif %}
+                                        {% if pet['grey'] == 1 %}
+                                        <span>grey </span>
+                                        {% endif %}
+                                        {% if pet['beige'] == 1 %}
+                                        <span>beige </span>
+                                        {% endif %}
+                                        {% if pet['red'] == 1 %}
+                                        <span>red </span>
+                                        {% endif %}
+                                        {% if pet['other'] == 1 %}
+                                        <span>{{ pet['otherColour'] }}</span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                        </a>
+                    {% endfor %}
+                </div>
         </div>
     </div>
 </div>

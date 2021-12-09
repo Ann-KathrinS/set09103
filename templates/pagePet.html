@@ -8,28 +8,64 @@
       <div class="row w-100">
         <div class="col">
           <div class="photo">
-            <img src="{{ pet['photo'] }}" class="petPhotoBig">
+            <img src="{{ url_for('static', filename='img/' + pet['photo']) }}" class="petPhotoBig">
           </div>
 
         </div>
         <div class="col">
-          <h2>{{ pet['reportType'] }} {{ pet['petType'] }}</h2>
+          <h2>{{ pet['reportType'] }}
+              {% if petType == "other" %}
+                {{ pet['otherPetType'] }}
+              {% else %}
+                {{ pet['petType'] }}
+              {% endif %}</h2>
           <p class="infoMargin">
-           missed {{ type1 }}<span class="bold"> {{ pet['date'] }}</span><br>
-           missed {{ type2 }} in<span class="bold"> {{ pet['postcodeArea'] }} {{ pet['postcodeIncode'] }}</span>
+           {% if reportType == "Missing" %}
+              Missing since
+           {% else %}
+              Found on
+           {% endif %}
+            <span class="bold"> {{ pet['date'] }}</span><br>
+            {% if reportType == "Missing" %}
+              Missing in
+            {% else %}
+              Found in
+            {% endif %}
+            <span class="bold"> {{ pet['postcodeArea'] }} {{ pet['postcodeIncode'] }}</span>
           </p>
           <p class="infoMargin">
-            Name: {{ petName }}<br>
-            Sex: {{ sex }}<br>
-            Age: {{ age }}<br>
+            Name: {{ pet['name'] }}<br>
+            Sex: {{ pet['sex'] }}<br>
+            Age: {{ pet['age'] }}<br>
             Colour:
-            {% for colour in colours %}
-              {{ colour }}
-            {% endfor %}
+              {% if pet['black'] == 1 %}
+              <span>black </span>
+              {% endif %}
+              {% if pet['white'] == 1 %}
+              <span>white </span>
+              {% endif %}
+              {% if pet['brown'] == 1 %}
+              <span>brown </span>
+              {% endif %}
+              {% if pet['lightBrown'] == 1 %}
+              <span>light brown </span>
+              {% endif %}
+              {% if pet['grey'] == 1 %}
+              <span>grey </span>
+              {% endif %}
+              {% if pet['beige'] == 1 %}
+              <span>beige </span>
+              {% endif %}
+              {% if pet['red'] == 1 %}
+              <span>red </span>
+              {% endif %}
+              {% if pet['other'] == 1 %}
+              <span>{{ pet['otherColour'] }}</span>
+              {% endif %}
           </p>
           <p class="infoMargin">
             <span class="bold">Description:</span><br>
-            {{ description }}
+            {{ pet['description'] }}
           </p>
         </div>
       </div>

@@ -8,7 +8,7 @@
         <p>Fill in this form to report a found pet on our website. <br>
             This way we can help to find its owner as quickly as possible.</p>
         <form action="/pet-added" onsubmit="return checkData(this)" method="post" class="report" enctype="multipart/form-data">
-		<input type="hidden" name="reportType" value="found">
+            <input type="hidden" name="reportType" value="Found">
             <h3 id="petType">Choose the type of the pet:</h3>
             <p class="checkbox-group required">
                 <input type="radio" name="petType" value="dog" class="petIcon" id="foundDogTrigger">
@@ -110,7 +110,7 @@
                         may forward this to possible owners of the animal so that they can contact you.
                     </p>
                 </div>
-                <input type="submit" class="btn submit" name="submitMissing" value="Report missing pet">
+                <input type="submit" class="btn submit" name="submitFound" value="Report found pet">
             </div>
         </form>
     </div>
