@@ -7,7 +7,7 @@
         <img src="{{ url_for('static', filename='img/logo.svg') }}" class="petPhoto">
         <div class="petInfo">
             <p>{{ type1 }}<span class="bold"> {{ date }}</span><br>
-                {{ type2 }} in<span class="bold"> {{ location }}</span>
+                {{ type2 }} in<span class="bold"> <{{ postcodeArea }} {{ postcodeIncode }}</span>
             </p>
             <p class="addInfo">
                 Name: {{ petName }}<br>

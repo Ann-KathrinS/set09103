@@ -9,13 +9,14 @@
   {% else %}
       <h4>Do you know {{ petName }}, is it your own pet? Share your comments here.
         <br>Every hint can help to find {{ petName }}s owner as soon as possible.</h4>
-  {% endif}
+  {% endif %}
 
   <div class="comments">
     <h4 class="marginComments">Hints and comments</h4>
 
     {% for comment in comments %}
       {% block comment %}
+      {% endblock %}
     {% endfor %}
 
   </div>

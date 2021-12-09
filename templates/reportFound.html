@@ -7,7 +7,7 @@
         <h1>Did you find a pet?</h1>
         <p>Fill in this form to report a found pet on our website. <br>
             This way we can help to find its owner as quickly as possible.</p>
-        <form action="/pet-added" onsubmit="return checkData(this)" method="post" class="report">
+        <form action="/pet-added" onsubmit="return checkData(this)" method="post" class="report" enctype="multipart/form-data">
 		<input type="hidden" name="reportType" value="found">
             <h3 id="petType">Choose the type of the pet:</h3>
             <p class="checkbox-group required">
@@ -70,8 +70,8 @@
                     <p>
                         Sex<br>
                     <div>
-                        <span class="sex"><input type="radio" name="female"> Female</span>
-                        <span><input type="radio" name="male"> Male</span>
+                        <span class="sex"><input type="radio" name="sex" value="female"> Female</span>
+                        <span><input type="radio" name="sex" value="male"> Male</span>
                     </div>
                     </p>
                 </div>
@@ -86,7 +86,7 @@
                         Please upload a picture of the found pet. This will make it easier for the owner to recognize his pet.
                         <br>
                     <div class="form-group">
-                        <input type="file" class="form-control-file" id="uploadFileButton" value="Upload photo" required>
+                        <input type="file" class="form-control-file" id="uploadFileButton" name="petPhoto" value="Upload photo" required>
                     </div><br>
                     </p>
                 </div>

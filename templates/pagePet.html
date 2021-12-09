@@ -8,15 +8,15 @@
       <div class="row w-100">
         <div class="col">
           <div class="photo">
-            <img src="{{ url_for('static', filename='img/logo.svg') }}" class="petPhotoBig">
+            <img src="{{ pet['photo'] }}" class="petPhotoBig">
           </div>
 
         </div>
         <div class="col">
-          <h2>{{ type }} {{ petType }}</h2>
+          <h2>{{ pet['reportType'] }} {{ pet['petType'] }}</h2>
           <p class="infoMargin">
-            {{ type1 }}<span class="bold"> {{ date }}</span><br>
-            {{ type2 }} in<span class="bold"> {{ location }}</span>
+           missed {{ type1 }}<span class="bold"> {{ pet['date'] }}</span><br>
+           missed {{ type2 }} in<span class="bold"> {{ pet['postcodeArea'] }} {{ pet['postcodeIncode'] }}</span>
           </p>
           <p class="infoMargin">
             Name: {{ petName }}<br>

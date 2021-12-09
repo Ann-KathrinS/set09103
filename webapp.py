@@ -1,17 +1,21 @@
 from flask import Flask, render_template, g, request, url_for, flash, redirect
 import sqlite3
+import os
 
 app = Flask(__name__)
 
-"Database"
+app.config['UPLOAD_FOLDER']="static/img"
 
-db_location = 'var/sqlite3.db'
+#Database
+
+#db_location = 'var/sqlite3.db'
+db_location = 'var/pets.db'
 
 def get_db():
     db = getattr(g, 'db', None)
     if db is None:
-        db = sqlite3.connect(db_location)
-        g.db = db
+       db = sqlite3.connect(db_location)
+       g.db = db
     return db
 
 @app.teardown_appcontext
@@ -50,34 +54,139 @@ def petAdded():
         else:
             date = request.form['foundDate']
         petAge = request.form['petAge']
-        colourBlack = request.form['black']
-        colourWhite = request.form['white']
-        colourBrown = request.form['brown']
+        colourBlack = request.form.get('black')
+        colourWhite = request.form.get('white')
+        colourBrown = request.form.get('brown')
+        colourLightBrown = request.form.get('lightBrown')
+        colourGrey = request.form.get('grey')
+        colourBeige = request.form.get('beige')
+        colourRed = request.form.get('red')
+        colourOther = request.form.get('other')
+        otherColours = request.form['othercolours']
+        sex = request.form['sex']
+        description = request.form['petDescription']
+        #petPhoto = request.form['petPhoto']
+        ownersName = request.form['ownersName']
+        email = request.form['email']
+        ownersSurname = request.form['ownersSurname']
 
+        petPhoto = request.files['petPhoto']
+        if petPhoto.filename != '':
+            filepath=os.path.join(app.config['UPLOAD_FOLDER'], petPhoto.filename)
+            petPhoto.save(filepath)
 
-    return render_template('petAdded.html'),200
+        #Split postcode into area and incod
+        postcodeCharacters = list(postcode)
+        postcodeIncode = ""
+        postcodeArea = ""
 
-@app.route('/report-missing-pet' methods=('GET', 'POST'))
+        postcodeIncode = postcodeIncode + postcodeCharacters[len(postcodeCharacters)-3]
+        postcodeIncode = postcodeIncode + postcodeCharacters[len(postcodeCharacters)-2]
+        postcodeIncode = postcodeIncode + postcodeCharacters[len(postcodeCharacters)-1]
+
+        del postcodeCharacters[len(postcodeCharacters)-3]
+        del postcodeCharacters[len(postcodeCharacters)-2]
+        del postcodeCharacters[len(postcodeCharacters)-1]
+
+        for character in postcodeCharacters:
+            postcodeArea = postcodeArea + character
+
+        
+        
+        
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cursor = db.cursor()
+        cursor.execute('INSERT INTO pet (reportType, petType, name, reportDate, postcodeArea, postcodeIncode, age, sex, description, photo, ownerName, ownerSurname, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (reportType, petType, petName, date, postcodeArea, postcodeIncode, petAge, sex, description, petPhoto.filename, ownersName, ownersSurname, email))
+        db.commit()
+       # petId = db.cursor().execute('SELECT last_insert_rowid()')
+        petId = cursor.lastrowid
+       
+        if colourBlack == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId,'1'))
+            db.commit()
+
+        if colourWhite == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '2'))
+            db.commit()
+
+        if colourBrown == "on":
+           db.cursor().execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '3'))
+           db.commit()
+
+        if colourLightBrown == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '4'))
+            db.commit()
+
+        if colourGrey == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '5'))
+            
+            db.commit()
+        if colourBeige == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '6'))
+            db.commit()
+        if colourRed == "on":
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, '7'))
+            db.commit()
+
+        if colourOther == "on":
+            cursor.execute('INSERT INTO colour (category, name) VALUES (?, ?)', (other, otherColours))
+
+            db.commit()
+            colourId = db.cursor().execute('SELECT last_insert_rowid()')
+            cursor.execute('INSERT INTO petColour (petId, colourId) VALUES (?, ?)', (petId, colourId))
+
+        db.commit()
+
+        #sql = "SELECT petId FROM pet WHERE petId=?"
+        #pet = cursor.execute(sql, [petId]).fetchall()
+
+        pet = cursor.execute("SELECT * FROM pet WHERE petId=?", (petId,)).fetchone()
+        #page = []
+        #page.append('<html><p>')
+        #page.append(str(pet))
+        #page.append('</p></html>')
+        #return ''.join(page)
+   
+        
+        if reportType == "missing":
+            return render_template('textAddMissing.html', pet=pet),200
+        else:
+            return render_template('textAddFound.html', pet=pet),200
+    
+       
+
+@app.route('/report-missing-pet', methods=('GET', 'POST'))
 def report_missing():
     return render_template('reportMissing.html'),200
 
-@app.route('/report-found-pet' methods=('GET', 'POST'))
+@app.route('/report-found-pet', methods=('GET', 'POST'))
 def report_found():
     return render_template('reportFound.html'),200
 
-@app.route('/missing' methods=('GET', 'POST'))
+@app.route('/missing', methods=('GET', 'POST'))
 def showMissing():
     return render_template('petTile.html'),200
 
-@app.route('/found' methods=('GET', 'POST'))
+@app.route('/found', methods=('GET', 'POST'))
 def showFound():
     return render_template('petTile.html'),200
 
-@app.route('/missing/<petId>/<petName>' methods=('GET', 'POST'))
-def missingPet():
-    return render_template('comment.html'),200
+@app.route('/missing/<petId>/<petName>', methods=('GET', 'POST'))
+def missingPet(petId,petName):
 
-@app.route('/found/<petId>/<petName>' methods=('GET', 'POST'))
+    db = get_db()
+    db.row_factory = sqlite3.Row
+
+    cursor = db.cursor()
+
+    pet = cursor.execute("SELECT * FROM pet WHERE petId=?", (petId,)).fetchone()
+  
+
+
+    return render_template('comment.html', pet=pet),200
+
+@app.route('/found/<petId>/<petName>', methods=('GET', 'POST'))
 def foundPet():
     return render_template('comment.html'),200
 
