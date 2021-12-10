@@ -1,10 +1,53 @@
 from flask import Flask, render_template, g, request, url_for, flash, redirect
 import sqlite3
 import os
+from jinjasql import JinjaSql
+
+j = JinjaSql()
 
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER']="static/img"
+
+#sql template
+template = """
+    SELECT * FROM pet
+    WHERE reportType = {{ reportType }}
+    {% if not petType == '' %}
+    AND petType = {{ petType }}
+    {% endif %}
+    {% if not postcodeArea == 'Filter location' %}
+    AND postcodeArea = {{ postcodeArea }}
+    {% endif %}
+    {% if not black == '' %}
+    AND black = 1
+    {% endif %}
+    {% if not white == '' %}
+    AND white = 1
+    {% endif %}
+    {% if not brown == '' %}
+    AND brown = 1
+    {% endif %}
+    {% if not white == '' %}
+    AND white = 1
+    {% endif %}
+    {% if not lightBrown == '' %}
+    AND lightBrown = 1
+    {% endif %}
+    {% if not grey == '' %}
+    AND grey = 1
+    {% endif %}
+    {% if not beige == '' %}
+    AND beige = 1
+    {% endif %}
+    {% if not red == '' %}
+    AND red = 1
+    {% endif %}
+    {% if not other == '' %}
+    AND other = 1
+    {% endif %}
+"""    
+
 
 #Database
 
@@ -165,6 +208,55 @@ def report_found():
 
 @app.route('/missing', methods=('GET', 'POST'))
 def showMissing():
+
+    #Try filter options (doesn't work)
+    """if request.method == 'POST':
+        petType = request.form['petType']
+        postcodeArea = request.form['location']
+        colourBlack = request.form.get('black')
+        colourWhite = request.form.get('white')
+        colourBrown = request.form.get('brown')
+        colourLightBrown = request.form.get('lightBrown')
+        colourGrey = request.form.get('grey')
+        colourBeige = request.form.get('beige')
+        colourRed = request.form.get('red')
+        colourOther = request.form.get('other')
+        sex = request.form.get('sex')
+
+
+        #prepare data for sql query
+
+        data = {
+                "reportType": "Found",
+                "petType": petType,
+                "postcodeArea": postcodeArea,
+                #"sex": sex,
+                "black": colourBlack,
+                "white": colourWhite,
+                "brown": colourBrown,
+                "lightBrown": colourLightBrown,
+                "grey": colourGrey,
+                "beige": colourBeige,
+                "red": colourRed,
+                "other": colourOther
+                }
+
+
+        query, bind_params = j.prepare_query(template, data)
+
+        #self.assertEquals(bind_params, [reportType, petType, postcodeArea, sex, colourBlack, colourWhite, colourBrown, colourLightBrown, colourGrey, colourBeige,colourRed, colourOther])
+
+        #self.assertEquals(query.strip(), expected_query.strip())
+
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cursor = db.cursor()
+
+        pets = cursor.execute(query, (bind_params)).fetchall()
+
+    else:"""
+
+
     db = get_db()
     db.row_factory = sqlite3.Row
 
@@ -178,9 +270,10 @@ def showMissing():
 
 @app.route('/found', methods=('GET', 'POST'))
 def showFound():
-    """
-    if request.method == 'POST':
-        reportType = request.form['reportType']
+    
+
+    #Try filter options (doesn't work)
+    """if request.method == 'POST':
         petType = request.form['petType']
         postcodeArea = request.form['location']
         colourBlack = request.form.get('black')
@@ -191,21 +284,40 @@ def showFound():
         colourBeige = request.form.get('beige')
         colourRed = request.form.get('red')
         colourOther = request.form.get('other')
-        otherColours = request.form['othercolours']
-        sex = request.form['sex']
+        sex = request.form.get('sex')
 
+        
+        #prepare data for sql query
 
+        data = {
+                "reportType": "Found",
+                "petType": petType,
+                "postcodeArea": postcodeArea,
+                #"sex": sex,
+                "black": colourBlack,
+                "white": colourWhite,
+                "brown": colourBrown,
+                "lightBrown": colourLightBrown,
+                "grey": colourGrey,
+                "beige": colourBeige,
+                "red": colourRed,
+                "other": colourOther
+                }       
+        
+        
+        query, bind_params = j.prepare_query(template, data)
+        
+        #self.assertEquals(bind_params, [reportType, petType, postcodeArea, sex, colourBlack, colourWhite, colourBrown, colourLightBrown, colourGrey, colourBeige,colourRed, colourOther])
+        
+        #self.assertEquals(query.strip(), expected_query.strip())
+        
         db = get_db()
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
 
-        sql = 'SELECT * FROM pet WHERE reportType=?'
-        values = (reportType,
-        """
+        pets = cursor.execute(query, (bind_params)).fetchall()
         
-
-
-
+    else:"""
     db = get_db()
     db.row_factory = sqlite3.Row
 
