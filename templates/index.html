@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Edinburgh Pet Search</title>
-    <link href=" {{ url_for('static', filename='css/all.css') }}"  rel="stylesheet">
-    <link href=" {{ url_for('static', filename='css/bootstrap.min.css') }}" rel ="stylesheet"/>
-    <link href=" {{ url_for('static', filename='css/style.css') }}" rel ="stylesheet"/>
+    <link href="vendors/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link href ="static/css/bootstrap.min.css" rel ="stylesheet"/>
+    <link href ="static/css/style.css" rel ="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
-	    <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Edinburgh Pet Search Logo" width="150" ></a>
+        <a class="navbar-brand" href="index.html"><img src="static/img/logo.svg" alt="Edinburgh Pet Search Logo" width="150" ></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,9 +32,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/report-missing-pet">I found a pet</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
-                </li>
             </ul>
         </div>
     </div>
@@ -42,19 +40,20 @@
 <div class="background vh-100">
     <div class="d-flex text-center flex-column m-5">
         <h1 class="text_on_bg">Welcome to Edinburgh Pet Search!</h1>
-        <p class="text_on_bg text_bold"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy <br>eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+        <p class="text_on_bg text_bold"> Did you lost your pet or did you find a pet and you try to find its owner?
+        <br> Edinburgh Pet Search is the right place for you! We can help to reunite pets and owners as quickly as
+        possible, just report the pet on our website.</p>
         <div class="container">
             <div class="row justify-content-around m-3">
                 <a href="/missing" class="box">
                     <div class="box">
-			    <img src="{{ url_for('static', filename='img/magnifying_glass.svg') }}" class="box_icon">
+                        <img src="static/img/magnifying_glass.svg" class="box_icon">
                         <h3>Missing Pets</h3>
                     </div>
                 </a>
                 <a href="/found" class="box">
                     <div class="box">
-			    <img src="{{ url_for('static', filename='img/paw.svg') }} " class="box_icon">
+                        <img src="static/img/paw.svg" class="box_icon">
                         <h3>Found Pets</h3>
                     </div>
                 </a>
@@ -67,5 +66,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="static/js/bootstrap.min.js"></script>
 </html>

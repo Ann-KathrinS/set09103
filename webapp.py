@@ -178,6 +178,34 @@ def showMissing():
 
 @app.route('/found', methods=('GET', 'POST'))
 def showFound():
+    """
+    if request.method == 'POST':
+        reportType = request.form['reportType']
+        petType = request.form['petType']
+        postcodeArea = request.form['location']
+        colourBlack = request.form.get('black')
+        colourWhite = request.form.get('white')
+        colourBrown = request.form.get('brown')
+        colourLightBrown = request.form.get('lightBrown')
+        colourGrey = request.form.get('grey')
+        colourBeige = request.form.get('beige')
+        colourRed = request.form.get('red')
+        colourOther = request.form.get('other')
+        otherColours = request.form['othercolours']
+        sex = request.form['sex']
+
+
+        db = get_db()
+        db.row_factory = sqlite3.Row
+        cursor = db.cursor()
+
+        sql = 'SELECT * FROM pet WHERE reportType=?'
+        values = (reportType,
+        """
+        
+
+
+
     db = get_db()
     db.row_factory = sqlite3.Row
 

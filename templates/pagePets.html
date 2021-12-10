@@ -105,8 +105,8 @@
                             <div class="col">
                                 <p class="formInputs">
                                     <span class="bold formLabel">Sex: </span>
-                                    <span class="colour"><input type="radio" name="female"> Female</span>
-                                    <span><input type="radio" name="male"> Male</span>
+                                    <span class="colour"><input type="radio" name="sex" value="female"> Female</span>
+                                    <span><input type="radio" name="sex" value="male"> Male</span>
                                 </p>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                                         {% else %}
                                             Found on
                                         {% endif %}
-                                        <span class="bold"> {{ pet['date'] }}</span><br>
+                                        <span class="bold"> {{ pet['reportDate'] }}</span><br>
                                         {% if reportType == "Missing" %}
                                             Missing in
                                         {% else %}
